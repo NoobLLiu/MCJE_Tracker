@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "mcjetracker",
+  "version": "${version}",
+  "name": "MCJE Tracker Client",
+  "description": "接收服务端 MCJE_Tracker 插件下发的目标位置，并在客户端视角内高亮描边。",
+  "authors": [ "NoobLLiu" ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [ "com.mcje.tracker.client.TrackerClient" ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

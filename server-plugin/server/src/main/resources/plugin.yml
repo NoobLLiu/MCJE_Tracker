@@ -1,0 +1,22 @@
+name: MCJE_Tracker
+version: '${version}'
+main: com.mcje.tracker.TrackerPlugin
+api-version: '1.21'
+description: 追踪掉落物 / 方块 / 玩家，并把位置下发给配套客户端模组做高亮描边
+authors: [ NoobLLiu ]
+commands:
+  tracker:
+    description: 物品追踪器开关与目标管理
+    usage: |
+      /tracker <item|block|player> <on|off> [追踪格数 默认15]
+      /tracker <item|block|player> <add|del> <目标>
+      /tracker reload
+    aliases: [ tk ]
+    permission: mcjetracker.use
+permissions:
+  mcjetracker.use:
+    description: 允许使用 /tracker 指令
+    default: op
+  mcjetracker.reload:
+    description: 允许热重载配置
+    default: op

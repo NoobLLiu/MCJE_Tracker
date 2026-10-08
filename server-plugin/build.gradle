@@ -1,0 +1,4 @@
+allprojects {
+    group = 'com.mcje.tracker'
+    version = '1.0.0'
+}

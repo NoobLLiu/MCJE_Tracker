@@ -1,0 +1,17 @@
+# MCJE_Tracker 配置
+# 通过 /tracker reload 热重载
+
+# 未在指令中指定追踪格数时使用的默认值（单位：方块）
+default-range: 15
+
+# 扫描周期（单位：tick，20 tick = 1 秒）。越小越灵敏，但服务端开销越高
+scan-interval-ticks: 10
+
+# 每类目标单次扫描最多下发的数量，避免大范围追踪时数据量爆炸
+max-results-per-category: 64
+
+# 方块扫描单次遍历的最大方块数上限（防止大范围扫描卡服）
+max-blocks-scanned: 40000
+
+# 是否由服务端下发 actionbar 方向指引（最近目标：位于 xx，距离 n 格）
+actionbar-enabled: true
