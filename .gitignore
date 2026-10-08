@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.eclipse/
+*.classpath
+*.project
+
+# 运行目录
+run/
+runs/
+
+# 自动下载 / 私有编译期依赖
+server-plugin/server/libs/
+client-mod/libs/
+
+# 敏感文件
+.env
+*.key

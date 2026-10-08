@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    // 私有 / 内部依赖 jar 放 server/libs/，用 flatDir 兜底（通常被 .gitignore 忽略）
+    flatDir { dirs 'libs' }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
+    // compileOnly files('libs/YourInternalApi-x.y.z.jar')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['--release', '21']
+}
+
+processResources {
+    filesMatching('plugin.yml') {
+        expand('version': project.version)   // 注入 plugin.yml 的 ${version}
+    }
+}
+
+jar {
+    archiveBaseName = 'MCJE_Tracker-server'
+    archiveVersion = project.version
+}
