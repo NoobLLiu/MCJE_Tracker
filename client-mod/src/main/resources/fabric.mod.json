@@ -6,6 +6,7 @@
   "description": "接收服务端 MCJE_Tracker 插件下发的目标位置，并在客户端视角内高亮描边。",
   "authors": [ "NoobLLiu" ],
   "environment": "client",
+  "accessWidener": "mcjetracker.accesswidener",
   "entrypoints": {
     "client": [ "com.mcje.tracker.client.TrackerClient" ]
   },

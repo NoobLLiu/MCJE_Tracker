@@ -23,3 +23,9 @@ client-mod/libs/
 # 敏感文件
 .env
 *.key
+
+# 开发期临时产物（本地缓存 / 解包资源，勿入库）
+.mccache/
+.yamcache/
+.mcsrc/
+-din=1/

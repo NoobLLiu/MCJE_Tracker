@@ -93,10 +93,12 @@ Windows 使用 `gradlew.bat`。请使用仓库自带 Wrapper，无需本机安�
    - `item` / `player` 通过 `getNearbyEntities` 按半径检索；
    - `block` 在半径立方体内逐块匹配，受 `max-blocks-scanned` 预算保护。
 2. 命中目标编码为插件消息经通道 `mcjetracker:main` 下发（字符串采用 Minecraft `PacketByteBuf` 的 VarInt 长度前缀 + UTF-8 格式）。
-3. 客户端模组反序列化为快照，在 `WorldRenderEvents.AFTER_ENTITIES` 阶段为每个目标绘制 `lines` 线框盒：
-   - 掉落物 = 黄、方块 = 青、玩家 = 绿；
-   - 实体（掉落物 / 玩家）按 `entityId` 每帧重新取包围盒，描边随实体移动。
-4. 服务端同时用 actionbar 输出**最近目标**的方位与距离（如「追踪[物品] diamond 位于 (x,y,z) 方向 右前 距离 6.3格」）。
+3. 客户端模组反序列化为快照，在 `WorldRenderEvents.AFTER_ENTITIES` 阶段为每个目标绘制线框盒（可**穿墙透视**）：
+   - 掉落物 = 紫、方块 = 青、玩家 = 绿；
+   - 描边使用关闭深度测试的自定义渲染管线（`RenderLayer.of` / `accessWidener`）实现透视；
+   - 实体（掉落物 / 玩家）按 `entityId` 每帧重新取包围盒，描边随实体移动；
+   - 目标过多时单帧只绘制前 15 个（按物品→玩家→方块顺序）以减少卡顿。
+4. 服务端同时用 actionbar 输出**最近目标**的方位与距离（如「追踪[物品] diamond 位于 (x,y,z) 方向 右前 上 距离 6.3格」）；方位在水平 8 向基础上附加「上/下」，当目标与玩家处于同一竖直列时水平方位显示「就在这里」。
 
 协议常量在两端各自定义，必须保持一致：
 

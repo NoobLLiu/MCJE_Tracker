@@ -20,6 +20,9 @@ loom {
     // Loom 会自动为其配置 Mixin 注解处理器与 refmap（生产环境必需）
     splitEnvironmentSourceSets()
 
+    // 扩大 RenderLayer.of 的可见性，用于创建穿墙描边渲染层
+    accessWidenerPath = file("src/main/resources/mcjetracker.accesswidener")
+
     mods {
         "mcjetracker" {
             sourceSet sourceSets.main

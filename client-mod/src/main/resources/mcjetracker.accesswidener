@@ -1,0 +1,4 @@
+accessWidener	v2	named
+
+# 暴露 RenderLayer.of，以便用自定义（穿墙）RenderPipeline 创建高亮描边层
+accessible	method	net/minecraft/client/render/RenderLayer	of	(Ljava/lang/String;Lnet/minecraft/client/render/RenderSetup;)Lnet/minecraft/client/render/RenderLayer;
