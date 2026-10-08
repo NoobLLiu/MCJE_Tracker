@@ -88,7 +88,7 @@ public final class TrackerTask extends BukkitRunnable {
             return;
         }
 
-        String direction = DirectionUtil.direction(player, targetX, targetZ);
+        String direction = DirectionUtil.direction(player, targetX, targetY, targetZ);
         String coords = String.format(Locale.ROOT, "(%.1f, %.1f, %.1f)", targetX, targetY, targetZ);
         String distanceText = String.format(Locale.ROOT, "%.1f", best);
 
